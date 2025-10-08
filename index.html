@@ -1,0 +1,4524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinar Listrik - Toko Elektronik Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c0c0c0;
+            --secondary-color: #e8e8e8;
+            --accent-color: #808080;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --dark-gray: #2a2a2a;
+            --success: #4CAF50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196F3;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--dark-gray), var(--accent-color));
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .header-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .header-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--white);
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            border: none;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-bar button:hover {
+            background: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-actions a {
+            color: var(--white);
+            font-size: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .header-actions a:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: var(--white);
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .nav-menu li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            padding: 12px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/seed/electronics/1200/500.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--dark-gray);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--dark-gray);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark-gray);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card i {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--danger);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-rating i {
+            color: #ffc107;
+            font-size: 14px;
+        }
+
+        .product-rating span {
+            margin-left: 5px;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-actions button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .add-to-cart {
+            background: var(--primary-color);
+            color: var(--dark-gray);
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent-color);
+        }
+
+        .add-to-wishlist {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .add-to-wishlist:hover {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--dark-gray), var(--accent-color));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: var(--dark-gray);
+            border: none;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--dark-gray);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: linear-gradient(to right, var(--dark-gray), var(--accent-color));
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-checkbox input {
+            margin-right: 10px;
+        }
+
+        .form-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-login p {
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .social-buttons button:hover {
+            background: #f5f5f5;
+        }
+
+        /* Cart Section */
+        .cart-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .cart-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+
+        .cart-items {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .cart-item-remove {
+            color: var(--danger);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-item-remove:hover {
+            color: #d32f2f;
+        }
+
+        .cart-summary {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .cart-summary h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .summary-row.total {
+            font-weight: 600;
+            font-size: 18px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .coupon-form {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .coupon-form h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .coupon-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .coupon-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+        }
+
+        .coupon-input button {
+            padding: 10px 15px;
+            background: var(--primary-color);
+            color: var(--dark-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .coupon-input button:hover {
+            background: var(--accent-color);
+        }
+
+        /* Checkout Section */
+        .checkout-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+
+        .checkout-form {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #f0f0f0;
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            color: var(--light-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .step.active .step-number {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .step.completed .step-number {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .step-title {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .checkout-section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .address-list {
+            margin-bottom: 20px;
+        }
+
+        .address-item {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .address-item:hover {
+            border-color: var(--accent-color);
+        }
+
+        .address-item.selected {
+            border-color: var(--accent-color);
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .address-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .address-name {
+            font-weight: 600;
+        }
+
+        .address-default {
+            background: var(--success);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .address-detail {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .add-address-btn {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 1px dashed var(--accent-color);
+            color: var(--accent-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .add-address-btn:hover {
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .shipping-options {
+            margin-bottom: 20px;
+        }
+
+        .shipping-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .shipping-option:hover {
+            border-color: var(--accent-color);
+        }
+
+        .shipping-option.selected {
+            border-color: var(--accent-color);
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .shipping-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shipping-name {
+            font-weight: 600;
+        }
+
+        .shipping-estimation {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .shipping-price {
+            font-weight: 600;
+        }
+
+        .payment-methods {
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-method:hover {
+            border-color: var(--accent-color);
+        }
+
+        .payment-method.selected {
+            border-color: var(--accent-color);
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .payment-method input {
+            margin-right: 15px;
+        }
+
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-radius: var(--border-radius);
+            margin-right: 15px;
+        }
+
+        .payment-info {
+            flex: 1;
+        }
+
+        .payment-name {
+            font-weight: 600;
+        }
+
+        .payment-desc {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .checkout-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .checkout-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-back {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-back:hover {
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .btn-next {
+            background: var(--primary-color);
+            color: var(--dark-gray);
+        }
+
+        .btn-next:hover {
+            background: var(--accent-color);
+        }
+
+        .btn-place-order {
+            background: var(--success);
+            color: var(--white);
+            width: 100%;
+        }
+
+        .btn-place-order:hover {
+            background: #3d8b40;
+        }
+
+        /* Account Section */
+        .account-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .account-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+
+        .account-sidebar {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .account-user {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 30px;
+            color: var(--accent-color);
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .user-email {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .account-menu {
+            list-style: none;
+        }
+
+        .account-menu li {
+            margin-bottom: 5px;
+        }
+
+        .account-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .account-menu a:hover, .account-menu a.active {
+            background: rgba(192, 192, 192, 0.1);
+            color: var(--accent-color);
+        }
+
+        .account-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .account-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .orders-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .orders-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--warning);
+        }
+
+        .status-processing {
+            background: rgba(33, 150, 243, 0.1);
+            color: var(--info);
+        }
+
+        .status-shipped {
+            background: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+
+        .status-delivered {
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+        }
+
+        .status-cancelled {
+            background: rgba(244, 67, 54, 0.1);
+            color: var(--danger);
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .order-actions button {
+            padding: 5px 10px;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .order-actions button:hover {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Admin Section */
+        .admin-section {
+            padding: 20px 0;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .admin-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        .admin-sidebar {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .admin-logo {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .admin-logo h2 {
+            font-size: 20px;
+            color: var(--dark-gray);
+        }
+
+        .admin-menu {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .admin-menu li {
+            margin-bottom: 5px;
+        }
+
+        .admin-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .admin-menu a:hover, .admin-menu a.active {
+            background: rgba(192, 192, 192, 0.1);
+            color: var(--accent-color);
+        }
+
+        .admin-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .admin-title {
+            font-size: 24px;
+            color: var(--dark-gray);
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(to right, var(--dark-gray), var(--accent-color));
+            color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-info h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .data-table img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .table-actions button {
+            padding: 5px 8px;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .table-actions button:hover {
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .table-actions button.edit {
+            color: var(--info);
+        }
+
+        .table-actions button.delete {
+            color: var(--danger);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            margin: 0 5px;
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pagination button:hover {
+            background: #f5f5f5;
+        }
+
+        .pagination button.active {
+            background: var(--accent-color);
+            color: var(--white);
+            border-color: var(--accent-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .cart-container, .checkout-container, .account-container, .admin-container {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .checkout-steps {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .checkout-steps::before {
+                width: 2px;
+                height: 100%;
+                top: 0;
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 14px;
+            }
+
+            .data-table th, .data-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 4px solid rgba(192, 192, 192, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--accent-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: var(--success);
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+
+        .toast.warning {
+            background: var(--warning);
+        }
+
+        .toast.info {
+            background: var(--info);
+        }
+
+        /* Product Detail */
+        .product-detail {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .thumbnail.active {
+            border-color: var(--accent-color);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-title-detail {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .product-rating-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-rating-detail i {
+            color: #ffc107;
+        }
+
+        .product-price-detail {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .product-description {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        .product-options {
+            margin-top: 20px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .option-values {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .option-value {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .option-value:hover {
+            border-color: var(--accent-color);
+        }
+
+        .option-value.selected {
+            background: var(--accent-color);
+            color: var(--white);
+            border-color: var(--accent-color);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+        }
+
+        .quantity-controls button {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .quantity-controls button:hover {
+            background: #f5f5f5;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+        }
+
+        .product-actions-detail {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-add-to-cart {
+            flex: 2;
+            padding: 15px;
+            background: var(--primary-color);
+            color: var(--dark-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-add-to-cart:hover {
+            background: var(--accent-color);
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            padding: 15px;
+            background: var(--success);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-buy-now:hover {
+            background: #3d8b40;
+        }
+
+        .product-tabs {
+            margin-top: 40px;
+        }
+
+        .tab-nav {
+            display: flex;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .tab-nav button {
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-nav button:hover {
+            color: var(--text-color);
+        }
+
+        .tab-nav button.active {
+            color: var(--accent-color);
+        }
+
+        .tab-nav button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .tab-content {
+            padding: 20px 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .review-form {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .review-rating i {
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .review-rating i:hover,
+        .review-rating i.active {
+            color: #ffc107;
+        }
+
+        .review-list {
+            margin-top: 20px;
+        }
+
+        .review-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+        }
+
+        .review-date {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .review-rating-stars {
+            color: #ffc107;
+        }
+
+        .review-text {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Landing Page */
+        .landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-gray), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .landing-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .landing-content {
+            text-align: center;
+            color: var(--white);
+            animation: fadeInUp 1s ease;
+        }
+
+        .landing-logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .landing-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .landing-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .landing-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .landing-buttons button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-enter {
+            background: var(--primary-color);
+            color: var(--dark-gray);
+        }
+
+        .btn-enter:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-admin {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-admin:hover {
+            background: var(--white);
+            color: var(--dark-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div class="landing-content">
+            <div class="landing-logo">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h1 class="landing-title">Sinar Listrik</h1>
+            <p class="landing-subtitle">Toko Elektronik Terpercaya di Rejotangan Tulungagung</p>
+            <div class="landing-buttons">
+                <button class="btn-enter" onclick="enterSite()">Masuk ke Toko</button>
+                <button class="btn-admin" onclick="enterAdmin()">Panel Admin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website -->
+    <div id="mainSite" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-info">
+                        <span><i class="fas fa-map-marker-alt"></i> Rejotangan, Tulungagung</span>
+                        <span><i class="fas fa-phone"></i> 085645469426</span>
+                        <span><i class="fas fa-envelope"></i> info@sinarlistrik.com</span>
+                    </div>
+                    <div class="header-info">
+                        <a href="#"><i class="fab fa-instagram"></i> fnazzaruli_</a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="header-main">
+                    <a href="#" class="logo">
+                        <i class="fas fa-bolt"></i>
+                        Sinar Listrik
+                    </a>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Cari produk...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="header-actions">
+                        <a href="#" onclick="showModal('loginModal')"><i class="fas fa-user"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#" onclick="showPage('cart')">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#" onclick="showPage('home')">Beranda</a></li>
+                    <li>
+                        <a href="#">Produk <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown">
+                            <a href="#">Smartphone</a>
+                            <a href="#">Laptop</a>
+                            <a href="#">TV</a>
+                            <a href="#">Kamera</a>
+                            <a href="#">Audio</a>
+                            <a href="#">Gaming</a>
+                            <a href="#">Aksesoris</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Cara Belanja</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Homepage Content -->
+        <div id="homePage" class="page-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Elektronik Berkualitas dengan Harga Terbaik</h1>
+                        <p>Temukan berbagai produk elektronik terbaru dengan garansi resmi dan harga terjangkau</p>
+                        <a href="#" class="btn">Belanja Sekarang</a>
+                        <a href="#" class="btn btn-outline">Lihat Promo</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Kategori Produk</h2>
+                    </div>
+                    <div class="category-grid">
+                        <div class="category-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Smartphone</h3>
+                            <p>150+ Produk</p>
+                        </div>
+                        <div class="category-card">
+                            <i class="fas fa-laptop"></i>
+                            <h3>Laptop</h3>
+                            <p>80+ Produk</p>
+                        </div>
+                        <div class="category-card">
+                            <i class="fas fa-tv"></i>
+                            <h3>TV</h3>
+                            <p>60+ Produk</p>
+                        </div>
+                        <div class="category-card">
+                            <i class="fas fa-camera"></i>
+                            <h3>Kamera</h3>
+                            <p>45+ Produk</p>
+                        </div>
+                        <div class="category-card">
+                            <i class="fas fa-headphones"></i>
+                            <h3>Audio</h3>
+                            <p>120+ Produk</p>
+                        </div>
+                        <div class="category-card">
+                            <i class="fas fa-gamepad"></i>
+                            <h3>Gaming</h3>
+                            <p>90+ Produk</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="products">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Produk Terlaris</h2>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/seed/smartphone1/300/200.jpg" alt="Smartphone">
+                                <span class="product-badge">Diskon 20%</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Samsung Galaxy A54 5G</h3>
+                                <div class="product-price">Rp 5.499.000</div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(42)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="addToCart('Samsung Galaxy A54 5G', 5499000)">Tambah ke Keranjang</button>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/seed/laptop1/300/200.jpg" alt="Laptop">
+                                <span class="product-badge">Baru</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">ASUS VivoBook 15</h3>
+                                <div class="product-price">Rp 8.799.000</div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(28)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="addToCart('ASUS VivoBook 15', 8799000)">Tambah ke Keranjang</button>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/seed/tv1/300/200.jpg" alt="TV">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Samsung 43" Smart TV</h3>
+                                <div class="product-price">Rp 4.299.000</div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(35)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="addToCart('Samsung 43" Smart TV', 4299000)">Tambah ke Keranjang</button>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/seed/headphone1/300/200.jpg" alt="Headphone">
+                                <span class="product-badge">Diskon 15%</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Sony WH-1000XM5</h3>
+                                <div class="product-price">Rp 4.299.000</div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(67)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="addToCart('Sony WH-1000XM5', 4299000)">Tambah ke Keranjang</button>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Mengapa Belanja di Sinar Listrik?</h2>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h3>Pengiriman Cepat</h3>
+                            <p>Pesanan Anda akan dikirim dalam 1-2 hari kerja</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Garansi Resmi</h3>
+                            <p>Semua produk dilengkapi garansi resmi dari pabrik</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-undo"></i>
+                            <h3>30 Hari Pengembalian</h3>
+                            <p>Kembalikan produk jika tidak sesuai dalam 30 hari</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>Layanan 24/7</h3>
+                            <p>Tim customer service siap membantu kapan saja</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section class="newsletter">
+                <div class="container">
+                    <h2>Dapatkan Penawaran Spesial</h2>
+                    <p>Daftar newsletter kami untuk mendapatkan informasi promo dan produk terbaru</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Anda">
+                        <button type="submit">Berlangganan</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div id="productDetailPage" class="page-content" style="display: none;">
+            <section class="product-detail">
+                <div class="container">
+                    <div class="product-detail-container">
+                        <div class="product-images">
+                            <div class="main-image">
+                                <img src="https://picsum.photos/seed/product1/600/400.jpg" alt="Product">
+                            </div>
+                            <div class="thumbnail-images">
+                                <div class="thumbnail active">
+                                    <img src="https://picsum.photos/seed/product1/80/80.jpg" alt="Product">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://picsum.photos/seed/product2/80/80.jpg" alt="Product">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://picsum.photos/seed/product3/80/80.jpg" alt="Product">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://picsum.photos/seed/product4/80/80.jpg" alt="Product">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info-detail">
+                            <h1 class="product-title-detail">Samsung Galaxy A54 5G</h1>
+                            <div class="product-rating-detail">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5 (42 ulasan)</span>
+                            </div>
+                            <div class="product-price-detail">Rp 5.499.000</div>
+                            <div class="product-description">
+                                <p>Samsung Galaxy A54 5G hadir dengan layar Super AMOLED 6.4 inci, prosesor Exynos 1380, dan kamera 50MP. Smartphone ini mendukung jaringan 5G untuk kecepatan internet yang lebih cepat.</p>
+                            </div>
+                            <div class="product-options">
+                                <div class="option-group">
+                                    <span class="option-label">Warna:</span>
+                                    <div class="option-values">
+                                        <div class="option-value selected">Hitam</div>
+                                        <div class="option-value">Putih</div>
+                                        <div class="option-value">Hijau</div>
+                                        <div class="option-value">Ungu</div>
+                                    </div>
+                                </div>
+                                <div class="option-group">
+                                    <span class="option-label">Penyimpanan:</span>
+                                    <div class="option-values">
+                                        <div class="option-value">128GB</div>
+                                        <div class="option-value selected">256GB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantity-selector">
+                                <span>Jumlah:</span>
+                                <div class="quantity-controls">
+                                    <button onclick="decreaseQuantity()">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1" id="quantityInput">
+                                    <button onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
+                            <div class="product-actions-detail">
+                                <button class="btn-add-to-cart" onclick="addToCart('Samsung Galaxy A54 5G', 5499000)">
+                                    <i class="fas fa-shopping-cart"></i> Tambah ke Keranjang
+                                </button>
+                                <button class="btn-buy-now" onclick="buyNow()">Beli Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-tabs">
+                        <div class="tab-nav">
+                            <button class="active" onclick="showTab('description')">Deskripsi</button>
+                            <button onclick="showTab('specification')">Spesifikasi</button>
+                            <button onclick="showTab('reviews')">Ulasan (42)</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="description">
+                                <h3>Deskripsi Produk</h3>
+                                <p>Samsung Galaxy A54 5G adalah smartphone mid-range yang menawarkan fitur premium dengan harga terjangkau. Perangkat ini dilengkapi dengan layar Super AMOLED 6.4 inci dengan refresh rate 120Hz, memberikan pengalaman visual yang halus dan jernih.</p>
+                                <p>Di bagian dalam, Galaxy A54 5G ditenagai oleh chipset Exynos 1380 yang dipadukan dengan RAM 8GB dan penyimpanan internal hingga 256GB. Smartphone ini juga mendukung penggunaan kartu microSD untuk ekspansi penyimpanan hingga 1TB.</p>
+                                <p>Sistem kamera utama terdiri dari tiga lensa: 50MP (wide), 12MP (ultrawide), dan 5MP (macro). Kamera depan 32MP memastikan hasil selfie yang berkualitas tinggi. Baterai 5000mAh dengan dukungan fast charging 25W memastikan daya tahan yang lama sepanjang hari.</p>
+                            </div>
+                            <div class="tab-pane" id="specification">
+                                <h3>Spesifikasi</h3>
+                                <table>
+                                    <tr>
+                                        <td style="width: 200px; font-weight: 600;">Layar</td>
+                                        <td>Super AMOLED 6.4 inci, 1080 x 2400 pixels, 120Hz refresh rate</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Prosesor</td>
+                                        <td>Exynos 1380 (5nm)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">RAM</td>
+                                        <td>8GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Penyimpanan</td>
+                                        <td>128GB / 256GB, support microSD up to 1TB</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Kamera Utama</td>
+                                        <td>50MP (wide) + 12MP (ultrawide) + 5MP (macro)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Kamera Depan</td>
+                                        <td>32MP</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Baterai</td>
+                                        <td>5000mAh, Fast charging 25W</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Sistem Operasi</td>
+                                        <td>Android 13, One UI 5.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 600;">Konektivitas</td>
+                                        <td>5G, Wi-Fi 6, Bluetooth 5.3, NFC, USB Type-C</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="reviews">
+                                <h3>Ulasan Pelanggan</h3>
+                                <div class="review-form">
+                                    <h4>Tulis Ulasan Anda</h4>
+                                    <div class="review-rating">
+                                        <i class="far fa-star" onclick="setRating(1)"></i>
+                                        <i class="far fa-star" onclick="setRating(2)"></i>
+                                        <i class="far fa-star" onclick="setRating(3)"></i>
+                                        <i class="far fa-star" onclick="setRating(4)"></i>
+                                        <i class="far fa-star" onclick="setRating(5)"></i>
+                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <textarea placeholder="Tulis ulasan Anda..." rows="4"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn">Kirim Ulasan</button>
+                                    </form>
+                                </div>
+                                <div class="review-list">
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <div class="reviewer-info">
+                                                <div class="reviewer-avatar">A</div>
+                                                <div>
+                                                    <div class="reviewer-name">Andi Pratama</div>
+                                                    <div class="review-date">2 hari yang lalu</div>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-text">
+                                            <p>Sangat puas dengan pembelian ini. Kamera bagus, baterai tahan lama, dan performa lancar untuk gaming. Harga juga worth it dengan fitur yang didapat.</p>
+                                        </div>
+                                    </div>
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <div class="reviewer-info">
+                                                <div class="reviewer-avatar">S</div>
+                                                <div>
+                                                    <div class="reviewer-name">Siti Nurhaliza</div>
+                                                    <div class="review-date">1 minggu yang lalu</div>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-text">
+                                            <p>HP bagus dengan harga terjangkau. Layarnya bagus dan responsif. Sedikit kecewa dengan kamera malam yang kurang maksimal, tapi overall masih worth it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cartPage" class="page-content" style="display: none;">
+            <section class="cart-section">
+                <div class="container">
+                    <h2 class="section-title">Keranjang Belanja</h2>
+                    <div class="cart-container">
+                        <div class="cart-items">
+                            <div id="cartItemsContainer">
+                                <!-- Cart items will be dynamically added here -->
+                            </div>
+                            <div id="emptyCart" style="text-align: center; padding: 40px;">
+                                <i class="fas fa-shopping-cart" style="font-size: 60px; color: #ddd; margin-bottom: 20px;"></i>
+                                <h3>Keranjang Belanja Kosong</h3>
+                                <p>Belum ada produk di keranjang belanja Anda</p>
+                                <a href="#" class="btn" onclick="showPage('home')">Lanjutkan Belanja</a>
+                            </div>
+                        </div>
+                        <div class="cart-summary">
+                            <h3>Ringkasan Belanja</h3>
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">Rp 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Ongkos Kirim</span>
+                                <span id="shipping">Rp 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Diskon</span>
+                                <span id="discount">Rp 0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">Rp 0</span>
+                            </div>
+                            <div class="coupon-form">
+                                <h4>Kode Kupon</h4>
+                                <div class="coupon-input">
+                                    <input type="text" placeholder="Masukkan kode kupon">
+                                    <button>Terapkan</button>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 20px;" onclick="showPage('checkout')">Lanjut ke Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Checkout Page -->
+        <div id="checkoutPage" class="page-content" style="display: none;">
+            <section class="checkout-section">
+                <div class="container">
+                    <h2 class="section-title">Checkout</h2>
+                    <div class="checkout-container">
+                        <div class="checkout-form">
+                            <div class="checkout-steps">
+                                <div class="step active" id="step1">
+                                    <div class="step-number">1</div>
+                                    <div class="step-title">Alamat</div>
+                                </div>
+                                <div class="step" id="step2">
+                                    <div class="step-number">2</div>
+                                    <div class="step-title">Pengiriman</div>
+                                </div>
+                                <div class="step" id="step3">
+                                    <div class="step-number">3</div>
+                                    <div class="step-title">Pembayaran</div>
+                                </div>
+                                <div class="step" id="step4">
+                                    <div class="step-number">4</div>
+                                    <div class="step-title">Konfirmasi</div>
+                                </div>
+                            </div>
+
+                            <!-- Step 1: Address -->
+                            <div id="checkoutStep1" class="checkout-step-content">
+                                <h3 class="checkout-section-title">Alamat Pengiriman</h3>
+                                <div class="address-list">
+                                    <div class="address-item selected">
+                                        <div class="address-item-header">
+                                            <div class="address-name">Rumah</div>
+                                            <div class="address-default">Utama</div>
+                                        </div>
+                                        <div class="address-detail">
+                                            Ahmad Fadli<br>
+                                            085645469426<br>
+                                            Jl. Merdeka No. 123, Rejotangan, Tulungagung, Jawa Timur
+                                        </div>
+                                    </div>
+                                    <div class="address-item">
+                                        <div class="address-item-header">
+                                            <div class="address-name">Kantor</div>
+                                        </div>
+                                        <div class="address-detail">
+                                            Ahmad Fadli<br>
+                                            085645469426<br>
+                                            Jl. Sudirman No. 45, Tulungagung, Jawa Timur
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="add-address-btn" onclick="showModal('addressModal')">
+                                    <i class="fas fa-plus"></i> Tambah Alamat Baru
+                                </button>
+                                <div class="checkout-actions">
+                                    <button class="btn-back" onclick="showPage('cart')">Kembali</button>
+                                    <button class="btn-next" onclick="goToStep(2)">Lanjutkan</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Shipping -->
+                            <div id="checkoutStep2" class="checkout-step-content" style="display: none;">
+                                <h3 class="checkout-section-title">Metode Pengiriman</h3>
+                                <div class="shipping-options">
+                                    <div class="shipping-option selected">
+                                        <div class="shipping-info">
+                                            <i class="fas fa-truck"></i>
+                                            <div>
+                                                <div class="shipping-name">JNE Reguler</div>
+                                                <div class="shipping-estimation">Estimasi 2-3 hari</div>
+                                            </div>
+                                        </div>
+                                        <div class="shipping-price">Rp 15.000</div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <div class="shipping-info">
+                                            <i class="fas fa-shipping-fast"></i>
+                                            <div>
+                                                <div class="shipping-name">JNE YES</div>
+                                                <div class="shipping-estimation">Estimasi 1-2 hari</div>
+                                            </div>
+                                        </div>
+                                        <div class="shipping-price">Rp 25.000</div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <div class="shipping-info">
+                                            <i class="fas fa-box"></i>
+                                            <div>
+                                                <div class="shipping-name">J&T Express</div>
+                                                <div class="shipping-estimation">Estimasi 2-3 hari</div>
+                                            </div>
+                                        </div>
+                                        <div class="shipping-price">Rp 12.000</div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <div class="shipping-info">
+                                            <i class="fas fa-motorcycle"></i>
+                                            <div>
+                                                <div class="shipping-name">GoSend Same Day</div>
+                                                <div class="shipping-estimation">Estimasi hari yang sama</div>
+                                            </div>
+                                        </div>
+                                        <div class="shipping-price">Rp 20.000</div>
+                                    </div>
+                                </div>
+                                <div class="checkout-actions">
+                                    <button class="btn-back" onclick="goToStep(1)">Kembali</button>
+                                    <button class="btn-next" onclick="goToStep(3)">Lanjutkan</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Payment -->
+                            <div id="checkoutStep3" class="checkout-step-content" style="display: none;">
+                                <h3 class="checkout-section-title">Metode Pembayaran</h3>
+                                <div class="payment-methods">
+                                    <div class="payment-method selected">
+                                        <input type="radio" name="payment" checked>
+                                        <div class="payment-icon">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">Transfer Bank</div>
+                                            <div class="payment-desc">BCA, Mandiri, BNI, BRI</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <input type="radio" name="payment">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">Kartu Kredit/Debit</div>
+                                            <div class="payment-desc">Visa, Mastercard, JCB</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <input type="radio" name="payment">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">E-Wallet</div>
+                                            <div class="payment-desc">GoPay, OVO, DANA, ShopeePay</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <input type="radio" name="payment">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-store"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">COD (Bayar di Tempat)</div>
+                                            <div class="payment-desc">Bayar saat pesanan tiba</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkout-actions">
+                                    <button class="btn-back" onclick="goToStep(2)">Kembali</button>
+                                    <button class="btn-next" onclick="goToStep(4)">Lanjutkan</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Confirmation -->
+                            <div id="checkoutStep4" class="checkout-step-content" style="display: none;">
+                                <h3 class="checkout-section-title">Konfirmasi Pesanan</h3>
+                                <div class="order-summary">
+                                    <h4>Ringkasan Pesanan</h4>
+                                    <div id="orderItemsSummary">
+                                        <!-- Order items will be dynamically added here -->
+                                    </div>
+                                </div>
+                                <div class="order-details">
+                                    <h4>Detail Pengiriman</h4>
+                                    <p><strong>Nama:</strong> Ahmad Fadli</p>
+                                    <p><strong>Telepon:</strong> 085645469426</p>
+                                    <p><strong>Alamat:</strong> Jl. Merdeka No. 123, Rejotangan, Tulungagung, Jawa Timur</p>
+                                    <p><strong>Kurir:</strong> JNE Reguler</p>
+                                </div>
+                                <div class="payment-details">
+                                    <h4>Detail Pembayaran</h4>
+                                    <p><strong>Metode:</strong> Transfer Bank</p>
+                                    <p><strong>Subtotal:</strong> <span id="confirmSubtotal">Rp 0</span></p>
+                                    <p><strong>Ongkos Kirim:</strong> <span id="confirmShipping">Rp 0</span></p>
+                                    <p><strong>Total:</strong> <span id="confirmTotal">Rp 0</span></p>
+                                </div>
+                                <div class="checkout-actions">
+                                    <button class="btn-back" onclick="goToStep(3)">Kembali</button>
+                                    <button class="btn-place-order" onclick="placeOrder()">Buat Pesanan</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-summary">
+                            <h3>Ringkasan Belanja</h3>
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="checkoutSubtotal">Rp 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Ongkos Kirim</span>
+                                <span id="checkoutShipping">Rp 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Diskon</span>
+                                <span id="checkoutDiscount">Rp 0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="checkoutTotal">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Account Page -->
+        <div id="accountPage" class="page-content" style="display: none;">
+            <section class="account-section">
+                <div class="container">
+                    <div class="account-container">
+                        <div class="account-sidebar">
+                            <div class="account-user">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="user-name">Ahmad Fadli</div>
+                                <div class="user-email">ahmadfadli@email.com</div>
+                            </div>
+                            <ul class="account-menu">
+                                <li><a href="#" class="active" onclick="showAccountTab('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                                <li><a href="#" onclick="showAccountTab('orders')"><i class="fas fa-shopping-bag"></i> Pesanan Saya</a></li>
+                                <li><a href="#" onclick="showAccountTab('profile')"><i class="fas fa-user"></i> Profil Saya</a></li>
+                                <li><a href="#" onclick="showAccountTab('address')"><i class="fas fa-map-marker-alt"></i> Alamat</a></li>
+                                <li><a href="#" onclick="showAccountTab('wishlist')"><i class="fas fa-heart"></i> Wishlist</a></li>
+                                <li><a href="#" onclick="showAccountTab('settings')"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                                <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                            </ul>
+                        </div>
+                        <div class="account-content">
+                            <!-- Dashboard Tab -->
+                            <div id="dashboardTab" class="account-tab">
+                                <h2 class="account-title">Dashboard</h2>
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>Total Pesanan</h3>
+                                            <div class="stat-value">12</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>Dalam Proses</h3>
+                                            <div class="stat-value">2</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>Sedang Dikirim</h3>
+                                            <div class="stat-value">1</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>Selesai</h3>
+                                            <div class="stat-value">9</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 style="margin-top: 30px; margin-bottom: 15px;">Pesanan Terbaru</h3>
+                                <div class="orders-table-container">
+                                    <table class="orders-table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Pesanan</th>
+                                                <th>Tanggal</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#ORD-2023001</td>
+                                                <td>15 Nov 2023</td>
+                                                <td>Rp 5.499.000</td>
+                                                <td><span class="order-status status-shipped">Dikirim</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                        <button>Track</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-2023002</td>
+                                                <td>10 Nov 2023</td>
+                                                <td>Rp 8.799.000</td>
+                                                <td><span class="order-status status-processing">Diproses</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Orders Tab -->
+                            <div id="ordersTab" class="account-tab" style="display: none;">
+                                <h2 class="account-title">Pesanan Saya</h2>
+                                <div class="orders-table-container">
+                                    <table class="orders-table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Pesanan</th>
+                                                <th>Tanggal</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#ORD-2023001</td>
+                                                <td>15 Nov 2023</td>
+                                                <td>Rp 5.499.000</td>
+                                                <td><span class="order-status status-shipped">Dikirim</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                        <button>Track</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-2023002</td>
+                                                <td>10 Nov 2023</td>
+                                                <td>Rp 8.799.000</td>
+                                                <td><span class="order-status status-processing">Diproses</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-2023003</td>
+                                                <td>5 Nov 2023</td>
+                                                <td>Rp 4.299.000</td>
+                                                <td><span class="order-status status-delivered">Terkirim</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                        <button>Review</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD-2023004</td>
+                                                <td>1 Nov 2023</td>
+                                                <td>Rp 3.299.000</td>
+                                                <td><span class="order-status status-delivered">Terkirim</span></td>
+                                                <td>
+                                                    <div class="order-actions">
+                                                        <button>Lihat</button>
+                                                        <button>Review</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagination">
+                                    <button><i class="fas fa-chevron-left"></i></button>
+                                    <button class="active">1</button>
+                                    <button>2</button>
+                                    <button>3</button>
+                                    <button><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Profile Tab -->
+                            <div id="profileTab" class="account-tab" style="display: none;">
+                                <h2 class="account-title">Profil Saya</h2>
+                                <form>
+                                    <div class="form-group">
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" value="Ahmad Fadli">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" value="ahmadfadli@email.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telepon</label>
+                                        <input type="tel" value="085645469426">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal Lahir</label>
+                                        <input type="date" value="1990-01-01">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Jenis Kelamin</label>
+                                        <select>
+                                            <option value="male" selected>Laki-laki</option>
+                                            <option value="female">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn">Simpan Perubahan</button>
+                                </form>
+                            </div>
+
+                            <!-- Address Tab -->
+                            <div id="addressTab" class="account-tab" style="display: none;">
+                                <h2 class="account-title">Alamat Pengiriman</h2>
+                                <button class="btn" onclick="showModal('addressModal')" style="margin-bottom: 20px;">
+                                    <i class="fas fa-plus"></i> Tambah Alamat Baru
+                                </button>
+                                <div class="address-list">
+                                    <div class="address-item selected">
+                                        <div class="address-item-header">
+                                            <div class="address-name">Rumah</div>
+                                            <div class="address-default">Utama</div>
+                                        </div>
+                                        <div class="address-detail">
+                                            Ahmad Fadli<br>
+                                            085645469426<br>
+                                            Jl. Merdeka No. 123, Rejotangan, Tulungagung, Jawa Timur
+                                        </div>
+                                        <div style="margin-top: 15px;">
+                                            <button class="btn" style="padding: 5px 10px; font-size: 14px;">Edit</button>
+                                            <button class="btn" style="padding: 5px 10px; font-size: 14px; background: var(--danger);">Hapus</button>
+                                        </div>
+                                    </div>
+                                    <div class="address-item">
+                                        <div class="address-item-header">
+                                            <div class="address-name">Kantor</div>
+                                        </div>
+                                        <div class="address-detail">
+                                            Ahmad Fadli<br>
+                                            085645469426<br>
+                                            Jl. Sudirman No. 45, Tulungagung, Jawa Timur
+                                        </div>
+                                        <div style="margin-top: 15px;">
+                                            <button class="btn" style="padding: 5px 10px; font-size: 14px;">Edit</button>
+                                            <button class="btn" style="padding: 5px 10px; font-size: 14px; background: var(--danger);">Hapus</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Wishlist Tab -->
+                            <div id="wishlistTab" class="account-tab" style="display: none;">
+                                <h2 class="account-title">Wishlist Saya</h2>
+                                <div class="product-grid">
+                                    <div class="product-card">
+                                        <div class="product-image">
+                                            <img src="https://picsum.photos/seed/wishlist1/300/200.jpg" alt="Product">
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">iPhone 14 Pro</h3>
+                                            <div class="product-price">Rp 18.999.000</div>
+                                            <div class="product-actions">
+                                                <button class="add-to-cart">Tambah ke Keranjang</button>
+                                                <button class="add-to-wishlist"><i class="fas fa-heart" style="color: var(--danger);"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-card">
+                                        <div class="product-image">
+                                            <img src="https://picsum.photos/seed/wishlist2/300/200.jpg" alt="Product">
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">MacBook Air M2</h3>
+                                            <div class="product-price">Rp 16.499.000</div>
+                                            <div class="product-actions">
+                                                <button class="add-to-cart">Tambah ke Keranjang</button>
+                                                <button class="add-to-wishlist"><i class="fas fa-heart" style="color: var(--danger);"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Settings Tab -->
+                            <div id="settingsTab" class="account-tab" style="display: none;">
+                                <h2 class="account-title">Pengaturan</h2>
+                                <div style="margin-bottom: 30px;">
+                                    <h3 style="margin-bottom: 15px;">Notifikasi Email</h3>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="newsletter" checked>
+                                        <label for="newsletter">Newsletter</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="orderUpdates" checked>
+                                        <label for="orderUpdates">Update Pesanan</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="promotions" checked>
+                                        <label for="promotions">Promosi & Diskon</label>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 30px;">
+                                    <h3 style="margin-bottom: 15px;">Keamanan</h3>
+                                    <button class="btn" style="margin-bottom: 10px;">Ubah Kata Sandi</button>
+                                    <button class="btn">Aktifkan Two-Factor Authentication</button>
+                                </div>
+                                <div>
+                                    <h3 style="margin-bottom: 15px;">Privasi</h3>
+                                    <button class="btn" style="background: var(--danger);">Hapus Akun</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Tentang Sinar Listrik</h3>
+                        <p>Sinar Listrik adalah toko elektronik terpercaya di Rejotangan, Tulungagung. Kami menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau dan garansi resmi.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Informasi</h3>
+                        <ul>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="#">Karir</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Kebijakan Privasi</a></li>
+                            <li><a href="#">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Layanan Pelanggan</h3>
+                        <ul>
+                            <li><a href="#">Cara Belanja</a></li>
+                            <li><a href="#">Cara Pembayaran</a></li>
+                            <li><a href="#">Pengiriman</a></li>
+                            <li><a href="#">Pengembalian</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Hubungi Kami</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Kontak Kami</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Merdeka No. 123, Rejotangan, Tulungagung, Jawa Timur</p>
+                        <p><i class="fas fa-phone"></i> 085645469426</p>
+                        <p><i class="fas fa-envelope"></i> info@sinarlistrik.com</p>
+                        <p><i class="fab fa-whatsapp"></i> 085645469426</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Sinar Listrik. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" style="display: none;">
+        <div class="admin-section">
+            <div class="container">
+                <div class="admin-container">
+                    <div class="admin-sidebar">
+                        <div class="admin-logo">
+                            <h2><i class="fas fa-bolt"></i> Sinar Listrik Admin</h2>
+                        </div>
+                        <ul class="admin-menu">
+                            <li><a href="#" class="active" onclick="showAdminTab('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><a href="#" onclick="showAdminTab('products')"><i class="fas fa-box"></i> Produk</a></li>
+                            <li><a href="#" onclick="showAdminTab('orders')"><i class="fas fa-shopping-bag"></i> Pesanan</a></li>
+                            <li><a href="#" onclick="showAdminTab('customers')"><i class="fas fa-users"></i> Pelanggan</a></li>
+                            <li><a href="#" onclick="showAdminTab('categories')"><i class="fas fa-tags"></i> Kategori</a></li>
+                            <li><a href="#" onclick="showAdminTab('coupons')"><i class="fas fa-ticket-alt"></i> Kupon</a></li>
+                            <li><a href="#" onclick="showAdminTab('settings')"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                            <li><a href="#" onclick="exitAdmin()"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                        </ul>
+                    </div>
+                    <div class="admin-content">
+                        <!-- Dashboard Tab -->
+                        <div id="adminDashboardTab" class="admin-tab">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Dashboard</h1>
+                                <div class="admin-actions">
+                                    <button class="btn">Export Data</button>
+                                </div>
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-box"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Total Produk</h3>
+                                        <div class="stat-value">542</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Total Pesanan</h3>
+                                        <div class="stat-value">1,248</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Pelanggan</h3>
+                                        <div class="stat-value">892</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Pendapatan</h3>
+                                        <div class="stat-value">Rp 2.4M</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 style="margin: 30px 0 15px;">Pesanan Terbaru</h3>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Pelanggan</th>
+                                            <th>Tanggal</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#ORD-2023001</td>
+                                            <td>Ahmad Fadli</td>
+                                            <td>15 Nov 2023</td>
+                                            <td>Rp 5.499.000</td>
+                                            <td><span class="order-status status-shipped">Dikirim</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-2023002</td>
+                                            <td>Siti Nurhaliza</td>
+                                            <td>10 Nov 2023</td>
+                                            <td>Rp 8.799.000</td>
+                                            <td><span class="order-status status-processing">Diproses</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Products Tab -->
+                        <div id="adminProductsTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Produk</h1>
+                                <div class="admin-actions">
+                                    <button class="btn" onclick="showModal('addProductModal')">
+                                        <i class="fas fa-plus"></i> Tambah Produk
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Gambar</th>
+                                            <th>Nama Produk</th>
+                                            <th>Kategori</th>
+                                            <th>Harga</th>
+                                            <th>Stok</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img src="https://picsum.photos/seed/adminproduct1/50/50.jpg" alt="Product"></td>
+                                            <td>Samsung Galaxy A54 5G</td>
+                                            <td>Smartphone</td>
+                                            <td>Rp 5.499.000</td>
+                                            <td>25</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="https://picsum.photos/seed/adminproduct2/50/50.jpg" alt="Product"></td>
+                                            <td>ASUS VivoBook 15</td>
+                                            <td>Laptop</td>
+                                            <td>Rp 8.799.000</td>
+                                            <td>15</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Orders Tab -->
+                        <div id="adminOrdersTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Pesanan</h1>
+                                <div class="admin-actions">
+                                    <button class="btn">Export Data</button>
+                                </div>
+                            </div>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Pelanggan</th>
+                                            <th>Tanggal</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#ORD-2023001</td>
+                                            <td>Ahmad Fadli</td>
+                                            <td>15 Nov 2023</td>
+                                            <td>Rp 5.499.000</td>
+                                            <td><span class="order-status status-shipped">Dikirim</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-2023002</td>
+                                            <td>Siti Nurhaliza</td>
+                                            <td>10 Nov 2023</td>
+                                            <td>Rp 8.799.000</td>
+                                            <td><span class="order-status status-processing">Diproses</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Customers Tab -->
+                        <div id="adminCustomersTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Pelanggan</h1>
+                                <div class="admin-actions">
+                                    <button class="btn">Export Data</button>
+                                </div>
+                            </div>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Telepon</th>
+                                            <th>Tanggal Bergabung</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#CUS-0001</td>
+                                            <td>Ahmad Fadli</td>
+                                            <td>ahmadfadli@email.com</td>
+                                            <td>085645469426</td>
+                                            <td>1 Jan 2023</td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#CUS-0002</td>
+                                            <td>Siti Nurhaliza</td>
+                                            <td>sitinurhaliza@email.com</td>
+                                            <td>08123456789</td>
+                                            <td>15 Feb 2023</td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Categories Tab -->
+                        <div id="adminCategoriesTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Kategori</h1>
+                                <div class="admin-actions">
+                                    <button class="btn" onclick="showModal('addCategoryModal')">
+                                        <i class="fas fa-plus"></i> Tambah Kategori
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Kategori</th>
+                                            <th>Jumlah Produk</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#CAT-0001</td>
+                                            <td>Smartphone</td>
+                                            <td>150</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#CAT-0002</td>
+                                            <td>Laptop</td>
+                                            <td>80</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Coupons Tab -->
+                        <div id="adminCouponsTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Kupon</h1>
+                                <div class="admin-actions">
+                                    <button class="btn" onclick="showModal('addCouponModal')">
+                                        <i class="fas fa-plus"></i> Tambah Kupon
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="data-table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Kode</th>
+                                            <th>Nama</th>
+                                            <th>Diskon</th>
+                                            <th>Masa Berlaku</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>DISKON20</td>
+                                            <td>Diskon 20%</td>
+                                            <td>20%</td>
+                                            <td>30 Nov 2023</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>ONGKIRGRATIS</td>
+                                            <td>Gratis Ongkir</td>
+                                            <td>Rp 15.000</td>
+                                            <td>15 Des 2023</td>
+                                            <td><span class="order-status status-delivered">Aktif</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="edit"><i class="fas fa-edit"></i></button>
+                                                    <button class="delete"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Settings Tab -->
+                        <div id="adminSettingsTab" class="admin-tab" style="display: none;">
+                            <div class="admin-header">
+                                <h1 class="admin-title">Pengaturan</h1>
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <label>Nama Toko</label>
+                                    <input type="text" value="Sinar Listrik">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" value="info@sinarlistrik.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telepon</label>
+                                    <input type="tel" value="085645469426">
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat</label>
+                                    <textarea rows="3">Jl. Merdeka No. 123, Rejotangan, Tulungagung, Jawa Timur</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <textarea rows="4">Sinar Listrik adalah toko elektronik terpercaya di Rejotangan, Tulungagung. Kami menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau dan garansi resmi.</textarea>
+                                </div>
+                                <button type="submit" class="btn">Simpan Perubahan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Masuk ke Akun Anda</h2>
+                <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Email atau Username</label>
+                        <input type="text" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kata Sandi</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Ingat saya</label>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Masuk</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="showModal('forgotModal')">Lupa Kata Sandi?</a>
+                    <a href="#" onclick="switchModal('loginModal', 'registerModal')">Daftar</a>
+                </div>
+                <div class="social-login">
+                    <p>Atau masuk dengan</p>
+                    <div class="social-buttons">
+                        <button><i class="fab fa-google"></i> Google</button>
+                        <button><i class="fab fa-facebook"></i> Facebook</button>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="#" onclick="continueAsGuest()">Lanjutkan sebagai Tamu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Buat Akun Baru</h2>
+                <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kata Sandi</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Kata Sandi</label>
+                        <input type="password" id="registerConfirmPassword" required>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <label for="agreeTerms">Saya setuju dengan Syarat & Ketentuan</label>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Daftar</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="switchModal('registerModal', 'loginModal')">Sudah punya akun? Masuk</a>
+                </div>
+                <div class="social-login">
+                    <p>Atau daftar dengan</p>
+                    <div class="social-buttons">
+                        <button><i class="fab fa-google"></i> Google</button>
+                        <button><i class="fab fa-facebook"></i> Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Lupa Kata Sandi</h2>
+                <button class="modal-close" onclick="closeModal('forgotModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Masukkan email Anda untuk menerima instruksi reset kata sandi.</p>
+                <form id="forgotForm">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="forgotEmail" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Kirim Instruksi</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="switchModal('forgotModal', 'loginModal')">Kembali ke Masuk</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Address Modal -->
+    <div class="modal" id="addressModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Alamat Baru</h2>
+                <button class="modal-close" onclick="closeModal('addressModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addressForm">
+                    <div class="form-group">
+                        <label>Label Alamat</label>
+                        <input type="text" placeholder="Rumah, Kantor, dll." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Penerima</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telepon</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Provinsi</label>
+                        <select required>
+                            <option value="">Pilih Provinsi</option>
+                            <option value="jawa-timur">Jawa Timur</option>
+                            <option value="jawa-barat">Jawa Barat</option>
+                            <option value="jawa-tengah">Jawa Tengah</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kota/Kabupaten</label>
+                        <select required>
+                            <option value="">Pilih Kota/Kabupaten</option>
+                            <option value="tulungagung">Tulungagung</option>
+                            <option value="kediri">Kediri</option>
+                            <option value="blitar">Blitar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kecamatan</label>
+                        <select required>
+                            <option value="">Pilih Kecamatan</option>
+                            <option value="rejotangan">Rejotangan</option>
+                            <option value="tulungagung">Tulungagung</option>
+                            <option value="bandung">Bandung</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <textarea rows="3" required></textarea>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="setDefaultAddress">
+                        <label for="setDefaultAddress">Jadikan sebagai alamat utama</label>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Simpan Alamat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Produk Baru</h2>
+                <button class="modal-close" onclick="closeModal('addProductModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label>Nama Produk</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tv">TV</option>
+                            <option value="kamera">Kamera</option>
+                            <option value="audio">Audio</option>
+                            <option value="gaming">Gaming</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Harga</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Stok</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Gambar</label>
+                        <input type="file" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Tambah Produk</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="addCategoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Kategori Baru</h2>
+                <button class="modal-close" onclick="closeModal('addCategoryModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCategoryForm">
+                    <div class="form-group">
+                        <label>Nama Kategori</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon</label>
+                        <input type="text" placeholder="Font Awesome class (e.g., fa-mobile-alt)">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Tambah Kategori</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Coupon Modal -->
+    <div class="modal" id="addCouponModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Kupon Baru</h2>
+                <button class="modal-close" onclick="closeModal('addCouponModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCouponForm">
+                    <div class="form-group">
+                        <label>Kode Kupon</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Kupon</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipe Diskon</label>
+                        <select required>
+                            <option value="percentage">Persentase (%)</option>
+                            <option value="fixed">Nominal Tetap (Rp)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Diskon</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Pembelian</label>
+                        <input type="number">
+                    </div>
+                    <div class="form-group">
+                        <label>Masa Berlaku</label>
+                        <input type="date" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Tambah Kupon</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Pesan berhasil ditampilkan</span>
+    </div>
+
+    <script>
+        // Global Variables
+        let cart = [];
+        let isLoggedIn = false;
+        let currentUser = null;
+        let currentPage = 'home';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            checkLoginStatus();
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Setup form handlers
+            setupFormHandlers();
+        });
+
+        // Landing Page Functions
+        function enterSite() {
+            document.getElementById('landingPage').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('landingPage').style.display = 'none';
+                document.getElementById('mainSite').style.display = 'block';
+            }, 1000);
+        }
+
+        function enterAdmin() {
+            document.getElementById('landingPage').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('landingPage').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+            }, 1000);
+        }
+
+        function exitAdmin() {
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('landingPage').style.display = 'flex';
+            document.getElementById('landingPage').classList.remove('hidden');
+        }
+
+        // Page Navigation
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => {
+                p.style.display = 'none';
+            });
+            
+            // Show selected page
+            if (page === 'home') {
+                document.getElementById('homePage').style.display = 'block';
+            } else if (page === 'productDetail') {
+                document.getElementById('productDetailPage').style.display = 'block';
+            } else if (page === 'cart') {
+                document.getElementById('cartPage').style.display = 'block';
+                updateCartDisplay();
+            } else if (page === 'checkout') {
+                document.getElementById('checkoutPage').style.display = 'block';
+                updateCheckoutSummary();
+            } else if (page === 'account') {
+                document.getElementById('accountPage').style.display = 'block';
+                if (!isLoggedIn) {
+                    showModal('loginModal');
+                    return;
+                }
+            }
+            
+            currentPage = page;
+        }
+
+        // Modal Functions
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function switchModal(closeModalId, openModalId) {
+            closeModal(closeModalId);
+            showModal(openModalId);
+        }
+
+        // Form Handlers
+        function setupFormHandlers() {
+            // Login Form
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                // Simulate login
+                if (email && password) {
+                    isLoggedIn = true;
+                    currentUser = {
+                        name: 'Ahmad Fadli',
+                        email: email
+                    };
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    
+                    closeModal('loginModal');
+                    showToast('Login berhasil! Selamat datang kembali.', 'success');
+                    showPage('account');
+                }
+            });
+            
+            // Register Form
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('registerConfirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    showToast('Kata sandi tidak cocok!', 'error');
+                    return;
+                }
+                
+                // Simulate registration
+                showToast('Registrasi berhasil! Silakan masuk.', 'success');
+                switchModal('registerModal', 'loginModal');
+            });
+            
+            // Forgot Password Form
+            document.getElementById('forgotForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('forgotEmail').value;
+                
+                // Simulate password reset
+                showToast(`Instruksi reset kata sandi telah dikirim ke ${email}`, 'success');
+                closeModal('forgotModal');
+            });
+            
+            // Address Form
+            document.getElementById('addressForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate adding address
+                showToast('Alamat berhasil ditambahkan!', 'success');
+                closeModal('addressModal');
+            });
+            
+            // Add Product Form
+            document.getElementById('addProductForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate adding product
+                showToast('Produk berhasil ditambahkan!', 'success');
+                closeModal('addProductModal');
+            });
+            
+            // Add Category Form
+            document.getElementById('addCategoryForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate adding category
+                showToast('Kategori berhasil ditambahkan!', 'success');
+                closeModal('addCategoryModal');
+            });
+            
+            // Add Coupon Form
+            document.getElementById('addCouponForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate adding coupon
+                showToast('Kupon berhasil ditambahkan!', 'success');
+                closeModal('addCouponModal');
+            });
+        }
+
+        // Cart Functions
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            showToast(`${name} ditambahkan ke keranjang!`, 'success');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            updateCartDisplay();
+            showToast('Produk dihapus dari keranjang', 'info');
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const emptyCart = document.getElementById('emptyCart');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '';
+                emptyCart.style.display = 'block';
+            } else {
+                emptyCart.style.display = 'none';
+                
+                let cartHTML = '';
+                let subtotal = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    cartHTML += `
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <img src="https://picsum.photos/seed/${item.name}/100/100.jpg" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-info">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+                                <div class="cart-item-quantity">
+                                    <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item-remove" onclick="removeFromCart(${index})">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = cartHTML;
+                
+                // Update summary
+                document.getElementById('subtotal').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+                document.getElementById('shipping').textContent = 'Rp 15.000';
+                document.getElementById('discount').textContent = 'Rp 0';
+                document.getElementById('total').textContent = `Rp ${(subtotal + 15000).toLocaleString('id-ID')}`;
+            }
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            
+            if (cart[index].quantity <= 0) {
+                removeFromCart(index);
+            } else {
+                updateCartCount();
+                updateCartDisplay();
+            }
+        }
+
+        // Checkout Functions
+        function goToStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.checkout-step-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all steps
+            document.querySelectorAll('.step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+                stepEl.classList.add('completed');
+            });
+            
+            // Show selected step
+            document.getElementById(`checkoutStep${step}`).style.display = 'block';
+            
+            // Add active class to current step and previous steps
+            for (let i = 1; i <= step; i++) {
+                if (i < step) {
+                    document.getElementById(`step${i}`).classList.add('completed');
+                    document.getElementById(`step${i}`).classList.remove('active');
+                } else {
+                    document.getElementById(`step${i}`).classList.add('active');
+                    document.getElementById(`step${i}`).classList.remove('completed');
+                }
+            }
+            
+            // Update order summary if on confirmation step
+            if (step === 4) {
+                updateOrderSummary();
+            }
+        }
+
+        function updateCheckoutSummary() {
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+            
+            document.getElementById('checkoutSubtotal').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('checkoutShipping').textContent = 'Rp 15.000';
+            document.getElementById('checkoutDiscount').textContent = 'Rp 0';
+            document.getElementById('checkoutTotal').textContent = `Rp ${(subtotal + 15000).toLocaleString('id-ID')}`;
+        }
+
+        function updateOrderSummary() {
+            let orderHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                orderHTML += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div>${item.name} x ${item.quantity}</div>
+                        <div>Rp ${itemTotal.toLocaleString('id-ID')}</div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('orderItemsSummary').innerHTML = orderHTML;
+            document.getElementById('confirmSubtotal').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('confirmShipping').textContent = 'Rp 15.000';
+            document.getElementById('confirmTotal').textContent = `Rp ${(subtotal + 15000).toLocaleString('id-ID')}`;
+        }
+
+        function placeOrder() {
+            // Simulate placing order
+            showToast('Pesanan berhasil dibuat! Terima kasih telah berbelanja.', 'success');
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+            
+            // Redirect to order confirmation
+            setTimeout(() => {
+                showPage('account');
+                showAccountTab('orders');
+            }, 2000);
+        }
+
+        // Account Functions
+        function showAccountTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.account-tab').forEach(t => {
+                t.style.display = 'none';
+            });
+            
+            // Remove active class from all menu items
+            document.querySelectorAll('.account-menu a').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tab}Tab`).style.display = 'block';
+            
+            // Add active class to selected menu item
+            event.target.classList.add('active');
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            currentUser = null;
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            
+            showToast('Anda telah keluar dari akun', 'info');
+            showPage('home');
+        }
+
+        function checkLoginStatus() {
+            const loggedIn = localStorage.getItem('isLoggedIn');
+            const user = localStorage.getItem('currentUser');
+            
+            if (loggedIn === 'true' && user) {
+                isLoggedIn = true;
+                currentUser = JSON.parse(user);
+            }
+        }
+
+        function continueAsGuest() {
+            closeModal('loginModal');
+            showToast('Anda melanjutkan sebagai tamu', 'info');
+        }
+
+        // Admin Functions
+        function showAdminTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.admin-tab').forEach(t => {
+                t.style.display = 'none';
+            });
+            
+            // Remove active class from all menu items
+            document.querySelectorAll('.admin-menu a').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`admin${tab.charAt(0).toUpperCase() + tab.slice(1)}Tab`).style.display = 'block';
+            
+            // Add active class to selected menu item
+            event.target.classList.add('active');
+        }
+
+        // Product Detail Functions
+        function showTab(tabName) {
+            // Remove active class from all tabs and buttons
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected tab and button
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function setRating(rating) {
+            const stars = document.querySelectorAll('.review-rating i');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas', 'active');
+                } else {
+                    star.classList.remove('fas', 'active');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        function increaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        function buyNow() {
+            const quantity = document.getElementById('quantityInput').value;
+            addToCart('Samsung Galaxy A54 5G', 5499000);
+            showPage('checkout');
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type
+            toast.className = 'toast show ' + type;
+            
+            // Set icon based on type
+            const icon = toast.querySelector('i');
+            icon.className = 'fas';
+            
+            if (type === 'success') {
+                icon.classList.add('fa-check-circle');
+            } else if (type === 'error') {
+                icon.classList.add('fa-exclamation-circle');
+            } else if (type === 'warning') {
+                icon.classList.add('fa-exclamation-triangle');
+            } else if (type === 'info') {
+                icon.classList.add('fa-info-circle');
+            }
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Product thumbnail selection
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                document.querySelectorAll('.thumbnail').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                
+                // Update main image
+                const mainImage = document.querySelector('.main-image img');
+                mainImage.src = this.querySelector('img').src.replace('/80/80', '/600/400');
+            });
+        });
+
+        // Address selection
+        document.querySelectorAll('.address-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove selected class from all items
+                document.querySelectorAll('.address-item').forEach(i => {
+                    i.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked item
+                this.classList.add('selected');
+            });
+        });
+
+        // Shipping option selection
+        document.querySelectorAll('.shipping-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.shipping-option').forEach(o => {
+                    o.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update shipping cost
+                const shippingPrice = this.querySelector('.shipping-price').textContent;
+                document.getElementById('checkoutShipping').textContent = shippingPrice;
+                
+                // Update total
+                const subtotal = parseInt(document.getElementById('checkoutSubtotal').textContent.replace(/[^\d]/g, ''));
+                const shipping = parseInt(shippingPrice.replace(/[^\d]/g, ''));
+                document.getElementById('checkoutTotal').textContent = `Rp ${(subtotal + shipping).toLocaleString('id-ID')}`;
+            });
+        });
+
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove selected class from all methods
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked method
+                this.classList.add('selected');
+                
+                // Check the radio button
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+
+        // Product option selection
+        document.querySelectorAll('.option-value').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options in the same group
+                const group = this.parentElement;
+                group.querySelectorAll('.option-value').forEach(o => {
+                    o.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
